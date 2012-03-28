@@ -1,0 +1,2 @@
+-- Haskell Examples of Recursion
+-- Jared Roesch, 2012
