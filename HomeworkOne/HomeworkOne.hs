@@ -124,11 +124,3 @@ insert = undefined
 
 remove :: a -> Tree a -> Tree a
 remove = undefined
-
-{- Section 4: Pattern Matching
-    This Section is focused on the understanding pattern matching and equivalence of 
-    case statements and multi-line function declaration.
--}
-
--- Simple One
-
