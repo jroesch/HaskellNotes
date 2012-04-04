@@ -1,16 +1,19 @@
 -- HomeworkOne 
 {-  Section One: Lists
-    The main purpose of this Section is too understand how to use types to deduce behavior 
-    of functions from their type signatures, as well as exploring Algebraic Data Types through 
-    the process reimplementing the built in List. The assignment also covers the implementation
-    of a simple Binary Tree and some basic operations that will be useful 
+    The main purpose of this Section is to understand using types signatures to deduce behavior 
+    of functions, as well as exploring Algebraic Data Types through the process reimplementing 
+    the built in List. The assignment also covers the implementation of a simple Binary Tree and 
+    some basic operations that will be useful to us. Each of these functions have in Section One
+    have an equivalent function in the Prelude that operates on built in Lists. I encourage you
+    to use those functions to figure out the behavior of these functions when reimplementing them.
+    You can also reference <insert book chapters>.
 -}
 
 -- Note all function have ' appended to them is is just part of the identifier and not a piece 
 -- of syntax. This is to disambiguate them from the Prelude functions.
 
 -- Definition of our List we will cover this in class
-data List a = {- Insert Definition Here -} deriving (Show, Read)
+data List a = Cons a (List a) | Nil deriving (Show, Read)
 
 -- define a function cons' that is the equivalent to (:)
 cons' :: a -> List a -> List a
@@ -108,7 +111,7 @@ thrd3 = undefined
    There are also provided function signatures and descriptions for you to implement.
 -}
 
-data Tree a = {- Insert Implementation Here -} deriving (Show, Read)
+data Tree a = Node a (Tree a) (Tree a) | Empty deriving (Show, Read)
 
 height :: Tree a -> Int
 height = undefined 
@@ -116,8 +119,16 @@ height = undefined
 findElem :: a -> Tree a -> Bool
 findElem = undefined 
 
+insert :: a -> Tree a -> Tree a
+insert = undefined 
+
+remove :: a -> Tree a -> Tree a
+remove = undefined
+
 {- Section 4: Pattern Matching
     This Section is focused on the understanding pattern matching and equivalence of 
     case statements and multi-line function declaration.
-}
+-}
+
+-- Simple One
 
