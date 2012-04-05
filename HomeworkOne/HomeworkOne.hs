@@ -6,7 +6,7 @@
     some basic operations that will be useful to us. Each of these functions have in Section One
     have an equivalent function in the Prelude that operates on built in Lists. I encourage you
     to use those functions to figure out the behavior of these functions when reimplementing them.
-    You can also reference <insert book chapters>.
+    You can also reference Chapter 3, 4 and 8 in the Learn You a Haskell for Great Good book, or the first few chapters of the Real World Haskell book.
 -}
 
 -- Note all function have ' appended to them is is just part of the identifier and not a piece 
