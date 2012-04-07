@@ -14,7 +14,7 @@
 -- of syntax. This is to disambiguate them from the Prelude functions.
 
 -- Definition of our List we will cover this in class
-data List a = Cons a (List a) | Nil deriving (Show, Read)
+data List a = Cons a (List a) | Nil deriving (Show, Read, Eq)
 
 -- define a function cons' that is the equivalent to (:)
 cons' :: a -> List a -> List a
@@ -50,11 +50,11 @@ take' = undefined
 
 -- returns true if an elem exists in a list
 elem' :: Eq a => a -> List a -> Bool
-elem = undefined 
+elem' = undefined 
 
 -- returns true if an element is not in a list
 notElem' :: Eq a => a -> List a -> Bool
-notElem = undefined 
+notElem' = undefined 
 
 -- returns removes n elements from the front a list
 drop' :: Int -> List a -> List a
@@ -62,7 +62,7 @@ drop' = undefined
 
 -- returns the length of list
 length' :: List a -> Int
-length = undefined 
+length' = undefined 
 
 -- takes one element and returns an infinite list of the element
 repeat' :: a -> List a
@@ -110,17 +110,18 @@ thrd3 = undefined
 {- Section 3: Trees
    This section is focused on the implementation of a binary tree using algebraic data types.
    There are also provided function signatures and descriptions for you to implement.
+   The functions assume that you tree being implemented will be a Binary Search Tree, and therefore require type a to be Ordered. 
 -}
 
-data Tree a = Node a (Tree a) (Tree a) | Empty deriving (Show, Read)
+data (Ord a) => Tree a = Node a (Tree a) (Tree a) | Empty deriving (Show, Read, Eq)
 
 height :: Tree a -> Int
 height = undefined 
 
-findElem :: a -> Tree a -> Bool
+findElem :: (Ord a) => a -> Tree a -> Bool
 findElem = undefined 
 
-insert :: a -> Tree a -> Tree a
+insert :: (Ord a) => a -> Tree a -> Tree a
 insert = undefined 
 
 remove :: a -> Tree a -> Tree a
