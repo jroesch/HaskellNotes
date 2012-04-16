@@ -86,13 +86,6 @@ intersperse :: a -> List a -> List a
 intersperse y xs = join y xs
     where join s (Cons x Nil) = (Cons x Nil)
           join s (Cons x xs)  = Cons x (Cons x (join s xs))
-          
-{- Section 2: Tuples
-   This section is a small section focused on the use of tuples and the pattern matching syntax 
-   that can be used to extract values from tuples.
--}
-
--- Functions that operate on two-tuples
 
 -- Returns the first element of the tuple
 fst' :: (a, b) -> a
@@ -112,21 +105,27 @@ snd3 (_, b, _) = b
 thrd3 :: (a, b, c) -> c
 thrd3 (_, _, c) = c
 
-{- Section 3: Trees
-   This section is focused on the implementation of a binary tree using algebraic data types.
-   There are also provided function signatures and descriptions for you to implement.
--}
-
-data Tree a = Node a (Tree a) (Tree a) | Empty deriving (Show, Read)
+data Tree a = Node a (Tree a) (Tree a) | Empty deriving (Show, Read, Eq)
 
 height :: Tree a -> Int
-height = undefined 
+height Empty = 0
+height (Node x Empty Empty) = 1
+height (Node _ left right)  = 1 + (if hl > hr then hl else hr)
+    where hl = height left
+          hr = height right
 
-findElem :: a -> Tree a -> Bool
-findElem = undefined 
-
-insert :: a -> Tree a -> Tree a
-insert = undefined 
+findElem :: (Ord a) => a -> Tree a -> Bool
+findElem x Empty = False
+findElem x (Node y left right) = if x == y 
+                                 then True 
+                                 else (findElem x left) || (findElem x right)
+                                 
+insert :: (Ord a) => a -> Tree a -> Tree a
+insert x Empty = (Node x Empty Empty)
+insert x t@(Node v left right) 
+    | x == v = t
+    | x < v  = (Node v (insert x left) right)
+    | x > v  = (Node v left (insert x right))
 
 remove :: a -> Tree a -> Tree a
 remove = undefined
