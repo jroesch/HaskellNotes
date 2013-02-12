@@ -1,0 +1,7 @@
+Hello, <% name %>
+
+Would Friday be a good time to contact you? also
+is <% phone %> a good way to reach you? if not is <% email %>
+a good way? 
+
+Let us know!
